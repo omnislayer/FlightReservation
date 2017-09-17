@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--  CSS -->
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--  End CSS -->
+</head>
+<body>
+    <!-- navigation -->
+    <ul class="side-nav green lighten-1" runat="server" id="navMobile" >
+    </ul><!--Outside Cause problem in navbar-fixed-->
+
+    <div class="navbar-fixed">
+        <nav class="green lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="Register.aspx" class="brand-logo white-text">Libri</a>
+                
+                <ul class="right hide-on-med-and-down" runat="server" id="ulNavBar">
+                </ul>
+                <a href="#" data-activates="navMobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                
+            </div>     
+        </nav>
+    </div>
+    <!-- Content --> 
+    <main>
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </main>
+    <!-- End Content -->
+    
+    <!--Footer-->
+    <footer class="page-footer green lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Made by Glynn Bacanto</h5>
+                    <p class="grey-text text-lighten-4">
+                        I used Materialize CSS for this Project! Glynn Bacanto(2017)
+                    </p>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Visit my stuff!</h5>
+                    <ul>
+                        <li><a class="white-text" target="_blank" href="https://theomnislayer.wordpress.com">Portfolio</a></li>
+                        <li><a class="white-text" target="_blank" href="https://www.linkedin.com/in/glynnbacanto/">LinkedIn</a></li>
+                        <li><a class="white-text" target="_blank" href="https://github.com/omnislayer/">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made using <a target="_blank" class="black-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer-->
+    
+    <!--  Scripts-->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        function isFloatNumber(e, t) {
+            var n;
+            var r;
+            if (navigator.appName == "Microsoft Internet Explorer" || navigator.appName == "Netscape") {
+                n = t.keyCode;
+                r = 1;
+                if (navigator.appName == "Netscape") {
+                    n = t.charCode;
+                    r = 0
+                }
+            } else {
+                n = t.charCode;
+                r = 0
+            }
+            if (r == 1) {
+                if (!(n >= 48 && n <= 57 || n == 46)) {
+                    t.returnValue = false
+                }
+            } else {
+                if (!(n >= 48 && n <= 57 || n == 0 || n == 46)) {
+                    t.preventDefault()
+                }
+            }
+        }
+    </script>
+    <!--  End Scripts-->
+</body>
+</html>

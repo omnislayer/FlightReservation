@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="AdminMasterPage"%>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--  CSS -->
+    <!--<link href="css/materialize_glynn.min.css" rel="stylesheet" />-->
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/adminStyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--  End CSS -->
+</head>
+
+<body>
+    <header>
+        <nav class="green lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+                 <a href="Frontpage.aspx" class="brand-logo white-text center-align">Lib.ri</a>
+                <ul runat="server" id="ulNavBar" class="white-text right"></ul>
+            </div>
+        </nav>
+        <div class="container">
+            <ul id="nav-mobile" class="side-nav fixed black-text">
+            <div id="sideNav" runat="server"></div><!-- Admin Tools -->
+        </ul>
+    </header>
+    <!-- navigation -->
+
+        <!-- Content --> 
+        <main>
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="frontPageContent" runat="server"></div><!-- Frontpage Content -->
+            </form>
+        </main>
+        <!-- End Content -->
+        <!--Footer-->
+    <footer class="page-footer green lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l3 s12">
+                    <h5 class="white-text">Made by Glynn Bacanto</h5>
+                    <p class="grey-text text-lighten-4">
+                        I used Materialize CSS for this Project! Glynn Bacanto(2017)
+                    </p>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Visit my stuff!</h5>
+                    <ul>
+                        <li><a class="white-text" target="_blank" href="https://theomnislayer.wordpress.com">Portfolio</a></li>
+                        <li><a class="white-text" target="_blank" href="https://www.linkedin.com/in/glynnbacanto/">LinkedIn</a></li>
+                        <li><a class="white-text" target="_blank" href="https://github.com/omnislayer/">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made using <a target="_blank" class="black-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer><!-- End Footer-->
+    <!--  Scripts-->
+    <script>
+        function isFloatNumber(e, t) {
+            var n;
+            var r;
+            if (navigator.appName == "Microsoft Internet Explorer" || navigator.appName == "Netscape") {
+                n = t.keyCode;
+                r = 1;
+                if (navigator.appName == "Netscape") {
+                    n = t.charCode;
+                    r = 0
+                }
+            } else {
+                n = t.charCode;
+                r = 0
+            }
+            if (r == 1) {
+                if (!(n >= 48 && n <= 57 || n == 46)) {
+                    t.returnValue = false
+                }
+            } else {
+                if (!(n >= 48 && n <= 57 || n == 0 || n == 46)) {
+                    t.preventDefault()
+                }
+            }
+        }
+    </script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <!--  End Scripts-->
+</body>
+</html>
